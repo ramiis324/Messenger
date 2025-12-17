@@ -1,0 +1,102 @@
+:root {
+    --background: #e5f6ff;
+    --foreground: #f1f6ff;
+    --foreground-2: #dceeff;
+    --accent: #1e88e5;
+    --accent-2: #1f97ff;
+}
+
+body {
+    background-color: var(--background);
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 27vh;
+    width: 100%;
+    background-image: linear-gradient(360deg, rgb(197, 197, 197), transparent);
+}
+
+.input-box {
+    width: clamp(500px, 10vw, 1000px);
+    height: clamp(10px, 5vh, 200px);
+    background-color: var(--foreground);
+    border-radius: 45vh;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 5px rgba(55, 55, 55, 0.1);
+    animation: moveup 1s ease forwards;
+}
+
+#input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.2em;
+    color: black;
+}
+
+#send-btn {
+    width: clamp(40px, 5vw, 50px);
+    height: clamp(40px, 5vw, 50px);
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent);
+    background-image: url('send-icon.svg');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: clamp(-13px, -2vw, -20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease;
+    transition: transform 0.1s ease;
+    border: 1px solid var(--accent-2);
+}
+
+#send-btn:hover {
+    background-color: var(--accent-2);
+}
+
+#send-btn:hover .bxs-send {
+    transform: rotate(-25deg);
+}
+
+#send-btn:active {
+    transform: scale(1.12);
+}
+
+#send-btn:active .bxs-send {
+    transform: rotate(-100deg) scale(1.25);
+}
+
+.bxs-send {
+    font-size: clamp(20px, 3vw, 24px);
+    transition: transform 0.3s ease;
+}
+
+@keyframes moveup {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
